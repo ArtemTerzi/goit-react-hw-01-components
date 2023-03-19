@@ -4,6 +4,7 @@ import {
   StatList,
 } from './Statistics.styled';
 import { statisticsItemMaker } from './statisticsItemMaker';
+import PropTypes from 'prop-types';
 
 export const Statistics = ({ title, data }) => (
   <StatisticsWrapper>
@@ -11,3 +12,14 @@ export const Statistics = ({ title, data }) => (
     <StatList>{statisticsItemMaker(data)}</StatList>
   </StatisticsWrapper>
 );
+
+Statistics.propTypes = {
+  title: PropTypes.string.isRequired,
+  data: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.string.isRequired,
+      label: PropTypes.string.isRequired,
+      percentage: PropTypes.number.isRequired,
+    })
+  ),
+};

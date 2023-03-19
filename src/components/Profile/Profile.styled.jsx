@@ -2,6 +2,7 @@ import styled from '@emotion/styled';
 
 export const ProfileWrapper = styled.div`
   padding: 8px;
+  margin-top: 40px;
   border-radius: 16px;
   text-align: center;
   background-color: white;
