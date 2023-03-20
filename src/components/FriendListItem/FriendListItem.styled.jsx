@@ -18,17 +18,9 @@ export const FriendItem = styled.li`
 export const Status = styled.span`
   width: 20px;
   height: 20px;
-  background-color: grey;
   border-radius: 20px;
   margin-right: 8px;
-
-  &.offline {
-    background-color: red;
-  }
-
-  &.online {
-    background-color: green;
-  }
+  background-color: ${props => (props.isOnline ? 'green' : 'red')};
 `;
 
 export const FriendAvatar = styled.img`

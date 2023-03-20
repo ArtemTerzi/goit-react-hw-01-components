@@ -3,13 +3,17 @@ import {
   StatisticsTitle,
   StatList,
 } from './Statistics.styled';
-import { statisticsItemMaker } from './statisticsItemMaker';
+import { StatisticItem } from './StatisticItem';
 import PropTypes from 'prop-types';
 
 export const Statistics = ({ title, data }) => (
   <StatisticsWrapper>
-    <StatisticsTitle>{title}</StatisticsTitle>
-    <StatList>{statisticsItemMaker(data)}</StatList>
+    {title && <StatisticsTitle>{title}</StatisticsTitle>}
+    <StatList>
+      {data.map(({ id, label, percentage }) => (
+        <StatisticItem key={id} label={label} percentage={percentage} />
+      ))}
+    </StatList>
   </StatisticsWrapper>
 );
 

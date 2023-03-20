@@ -5,10 +5,10 @@ import {
   TransactionTh,
   TransactionTableBody,
 } from 'components/TransactionHistory/TransactionHistory.styled';
-import { TransactionHistoryMaker } from 'components/TransactionHistory/TransactionHistoryMaker';
+import { TransactionHistoryItem } from 'components/TransactionHistory/TransactionHistoryItem';
 import PropTypes from 'prop-types';
 
-export const TransactionHistory = items => (
+export const TransactionHistory = ({ items }) => (
   <TransactionHistoryTable>
     <TransactionsTableHead>
       <TransactionTr>
@@ -19,7 +19,14 @@ export const TransactionHistory = items => (
     </TransactionsTableHead>
 
     <TransactionTableBody>
-      {TransactionHistoryMaker(items)}
+      {items.map(({ id, type, amount, currency }) => (
+        <TransactionHistoryItem
+          key={id}
+          type={type}
+          amount={amount}
+          currency={currency}
+        />
+      ))}
     </TransactionTableBody>
   </TransactionHistoryTable>
 );
